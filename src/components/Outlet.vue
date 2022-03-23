@@ -69,11 +69,13 @@ module.exports = {
 },
 Add: function(){
     this.action = "insert";
+    this.id_outlet = "";
     this.nama_outlet = "";
 
 },
 Edit: function(item){
     this.action = "update";
+    this.id_outlet = item.id_outlet;
     this.nama_outlet = item.nama_outlet;
 },
 

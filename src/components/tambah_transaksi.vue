@@ -1,14 +1,15 @@
 <template>
 <div>
   <main>
-  <div class="container-fluid px4">
-    <div class="content-wrapper">
-      <div class="row">
-        <div class="col-lg-6 block grid-margin stretch-card">
-          <div class="card">
-            <div class="card-body">
-              <p class="card-title float-left"><b>Input Transaksi</b></p>
-              <div class="table-responsive">
+            <div class="container-fluid py-4">
+              <div class="row">
+                  <div class="col-12">
+                  <div class="card mb-4">
+                      <div class="card-header pb-0">
+                      <h1>Transaksi</h1>
+                      </div>
+                  <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-4">
                   <div class="form-group">
                       <label class="col-form-label">Member</label>
                       <b-form-select class="form-control" v-model="id_member" :options="data_member"></b-form-select>
@@ -28,7 +29,7 @@
           </div>
         </div>
       </div>
-       <div class="col-lg-6 grid-margin stretch-card">
+       <div class="col-lg-7 grid-margin stretch-card">
           <div class="card">
             <div class="card-body">
               <div class="table-responsive">
@@ -52,17 +53,14 @@
                     </div>
                   </div>
                   <br><br>
-                  <b-button @click="Save" block squared size="lg" variant="success">Submit</b-button>
+                  <b-button @click="Save"  variant="success">Submit</b-button>
                 
               </div>
 
             </div>
           </div>
         </div>
-    </div>
-
-  
-    </div>   
+    </div>  
     </main>
   </div>
 </template>

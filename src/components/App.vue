@@ -54,7 +54,7 @@
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/transaksi" class="nav-link collapsed" v-if="role !== 'owner'">
+          <router-link to="/transaksi" class="nav-link collapsed">
                 <div class="sb-nav-link-icon">
                     <i class="fas fa-columns"></i>
                     <span class="nav-link-text ms-1">Transaksi</span>
@@ -94,8 +94,11 @@
                         <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
                       </div>
                       <div class="d-flex flex-column justify-content-center">
+
                         <h6 class="text-sm font-weight-normal mb-1">
-                          <span class="font-weight-bold">New message</span> from Laur
+                          <span class="font-weight-bold">
+                            <a @click="Logout">Logout</a>
+                          </span>
                         </h6>
                         <p class="text-xs text-secondary mb-0">
                           <i class="fa fa-clock me-1"></i>

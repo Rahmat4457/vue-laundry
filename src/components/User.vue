@@ -1,12 +1,17 @@
 <template>
     <div>
         <main>
-            <div class="container-fluid px-4">
-                        <h1 class="mt-4">User</h1>
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <a class="btn btn-info" v-b-modal.modal_user @click=Add()>Tambah</a>
-                            <table class="table">
+            <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <h1>User</h1>
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-4">
+                  <a class="btn btn-info btn-sm mb-0" v-b-modal.modal_member @click=Add()>Tambah</a>
+                <table class="table align-items-center mb-0">
                                 <tr>
                                     <td>ID User</td>
                                     <td>Nama</td>
@@ -27,6 +32,8 @@
                             </table>
                             </div>
                         </div>
+                    </div>
+                </div>
             </div>
         </main>
 
