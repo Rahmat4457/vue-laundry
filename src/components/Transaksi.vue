@@ -42,8 +42,8 @@
                                             <td>Total</td>
                                             <td>Aksi</td>
                                         </tr>
-                                        <tr v-for="saksi in transaksi" :key="saksi">
-                                            <td>{{ saksi.id_transaksi }}</td>
+                                        <tr v-for="(saksi, index) in transaksi" :key="index">
+                                            <td>{{ index+1 }}</td>
                                             <td>{{ saksi.nama_member }}</td>
                                             <td>{{ saksi.tgl }}</td>
                                             <td>
@@ -89,17 +89,19 @@
         </div>
         </main>
         <b-modal id="modal_detail" ref="modal" title="Detail Transaksi" size="md" hide-footer="true">
-            <table class="table" >
+            <table class="table" id="print">
                                 <a class="btn btn-success" @click="cetak()">Cetak</a>
                                 <tr>
+                                    <td>#</td>
                                     <td>Jenis</td>
                                     <td>Berat</td>
                                     <td>Sub total</td>
                                 </tr>
-                                <tr v-for="saksi in detail_transaksi" :key="saksi" id="print">
-                                    <td>{{ saksi.jenis }}</td>
-                                    <td>{{ saksi.berat }}</td>
-                                    <td>{{ saksi.sub_total }}</td>
+                                <tr v-for="(det, index) in detail_transaksi" :key="index" >
+                                    <td>{{ index+1 }}</td>
+                                    <td>{{ det.jenis }}</td>
+                                    <td>{{ det.berat }}</td>
+                                    <td>{{ det.sub_total }}</td>
                                 </tr>
                             </table>
                             <div class="text-right"><h4>Total: Rp{{ total }}</h4></div>
