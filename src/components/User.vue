@@ -17,6 +17,7 @@
                                     <td>Nama</td>
                                     <td>Username</td>
                                     <td>role</td>
+                                    <td>Outlet</td>
                                     <td>action</td>
                                 </tr>
                                 <tr v-for="ser in user" :key="ser">
@@ -24,6 +25,7 @@
                                     <td>{{ ser.name }}</td>
                                     <td>{{ ser.username }}</td>
                                     <td>{{ ser.role }}</td>
+                                    <td>{{ ser.outlet.nama_outlet }}</td>
                                     <td>
                                         <a v-b-modal.modal_user href="#" class="btn btn-success" @click="Edit(ser)">Ubah</a>
                                         <a href="#" class="btn btn-danger" @click="Delete(ser.id)">Hapus</a>
@@ -82,9 +84,9 @@ module.exports = {
             password:"",
             role : "",
             action:"",
+            outlet:"",
             user:[],
             data_outlet:[],
-            fields : ["id","name","username","role","outlet","aksi"],
             }
         },
     methods:{
