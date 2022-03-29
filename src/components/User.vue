@@ -10,7 +10,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-4">
-                  <a class="btn btn-info btn-sm mb-0" v-b-modal.modal_member @click=Add()>Tambah</a>
+                  <a class="btn btn-info btn-sm mb-0" v-b-modal.modal_user @click=Add()>Tambah</a>
                 <table class="table align-items-center mb-0">
                                 <tr>
                                     <td>ID User</td>
@@ -82,6 +82,7 @@ module.exports = {
             name:"",
             username : "",
             password:"",
+            nama_outlet:"",
             role : "",
             action:"",
             outlet:"",
@@ -101,9 +102,6 @@ module.exports = {
                 console.log(response);
             if(response.data.success == true){
                 this.user = response = response.data.data.user;
-        }   else{
-            this.componentName = 'login';
-            window.location = front_url;
         }  
     })
     .catch(error =>{
@@ -118,7 +116,8 @@ OutletDropdown: function(){
     };
     axios.get(base_url + '/outlet', config)
         .then(response=>{
-            let json_outlet = response.data.data.outlet;
+            console.log(response.data.data.outlet)
+            let json_outlet = response.data.data.outlet.nama_outlet;
             let list_outlet = [{
                 value: "", text:"--Pilih Outlet--"
             }]

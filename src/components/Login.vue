@@ -6,11 +6,12 @@
           <div class="row">
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
-                <div class="card-header pb-0 text-start">
+                
+                <div class="card-header">
+                  <div class="pb-0 text-start">
                   <h4 class="font-weight-bolder">Masuk</h4>
-                  <p class="mb-0">Inputkan username dan password untuk masuk</p>
+                  <p class="mb-3">Inputkan username dan password untuk masuk</p>
                 </div>
-                <div class="card-body">
                   <form role="form" v-on:submit.prevent="Login">
                     <div class="mb-3">
                       <input v-model="username" type="name" class="form-control form-control-lg" placeholder="username" aria-label="username">
