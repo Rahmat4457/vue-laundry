@@ -8,8 +8,7 @@
       <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html " target="_blank">
         <span class="ms-1 font-weight-bold">Laundry Rahmat</span>
       </a>
-    </div>
-    <hr class="horizontal dark mt-0">
+    </div>    <hr class="horizontal dark mt-0">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       
       <ul class="navbar-nav">

@@ -89,8 +89,13 @@
         </div>
         </main>
         <b-modal id="modal_detail" ref="modal" title="Detail Transaksi" size="md" hide-footer="true">
-            <table class="table" id="print">
-                                <a class="btn btn-success" @click="cetak()">Cetak</a>
+            <a class="btn btn-success" @click="cetak()">Cetak</a>
+            <div id="print">
+            <table class="table">
+                                <tr>
+                                    <td>Kasir :</td>
+                                    <td>{{ name }}</td>
+                                </tr>
                                 <tr>
                                     <td>#</td>
                                     <td>Jenis</td>
@@ -105,8 +110,11 @@
                                 </tr>
                             </table>
                             <div class="text-right"><h4>Total: Rp{{ total }}</h4></div>
+                            </div>
         </b-modal>
     </div>
+    
+
 </template>
 <script> 
 module.exports ={
@@ -121,6 +129,7 @@ module.exports ={
             kasir:"",
             total:"",
             tahun:"",
+            name:"",
             bulan:"",
             tgl:"",
             role:"",
@@ -164,6 +173,7 @@ module.exports ={
         .then(response=>{
             if(response.data.success == true){
                 this.username = response.data.data.username;
+                this.name = response.data.data.name;
                 this.role = response = response.data.data.role;
         }  
     })
@@ -213,7 +223,9 @@ module.exports ={
         },
         cetak: function(){
       const prtHtml = document.getElementById('print').innerHTML;
-      //console.log(prtHtml);
+
+
+      console.log(prtHtml);
       let stylesHtml = '';
       for (const node of [...document.querySelectorAll('link[rel="stylesheet"], style')]) {
         stylesHtml += node.outerHTML;
@@ -222,6 +234,7 @@ module.exports ={
       WinPrint.document.write(`<!DOCTYPE html>
       <html>
         <head>
+
         <link rel="stylesheet" href="src/assets/css/bootstrap.min.css">
           
         </head>
