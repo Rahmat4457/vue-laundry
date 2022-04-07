@@ -96,7 +96,6 @@ module.exports = {
     },
 
     getPaketDropdown: function(){
-        //ambil data paket untuk dropdown
         let config = { 
           headers: { 
             "Authorization" : 'Bearer ' + this.$cookies.get('Authorization') 

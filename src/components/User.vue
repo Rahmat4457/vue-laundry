@@ -116,8 +116,7 @@ OutletDropdown: function(){
     };
     axios.get(base_url + '/outlet', config)
         .then(response=>{
-            console.log(response.data.data.outlet)
-            let json_outlet = response.data.data.outlet.nama_outlet;
+            let json_outlet = response.data.data.outlet;
             let list_outlet = [{
                 value: "", text:"--Pilih Outlet--"
             }]
@@ -170,7 +169,7 @@ Save: function(){
             Swal.fire(response.data.message)
     })
     .catch(error => {
-          console.log(error);
+          Swal.fire(error);
         });
     }else{
         axios.put(base_url + '/user/'+this.id, form, config)
@@ -179,7 +178,7 @@ Save: function(){
             Swal.fire(response.data.message)
         })
         .catch(error => {
-          console.log(error);
+          Swal.fire(error);
         });
     }
 

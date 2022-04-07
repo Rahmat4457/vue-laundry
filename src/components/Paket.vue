@@ -10,7 +10,7 @@
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-4">
-                  <a class="btn btn-info btn-sm mb-0" v-b-modal.modal_member @click=Add()>Tambah</a>
+                  <a class="btn btn-info btn-sm mb-0" v-b-modal.modal_paket @click=Add()>Tambah</a>
                 <table class="table align-items-center mb-0">
                                 <tr>
                                     <td>ID Paket</td>
@@ -23,7 +23,7 @@
                                     <td>{{ ket.jenis }}</td>
                                     <td>{{ ket.harga }}</td>
                                     <td>
-                                        <a v-b-modal.modal_paket href="#" class="btn btn-success" @click="Edit(ket)">Ubah</a>
+                                        <a v-b-modal.modal_paket_edit href="#" class="btn btn-success" @click="Edit(ket)">Ubah</a>
                                         <a href="#" class="btn btn-danger" @click="Delete(ket.id_paket)">Hapus</a>
                                     </td>
                                 </tr>
@@ -41,6 +41,14 @@
                     <input v-model="jenis" placeholder="masukkan paket" id="inputJenis" class="form-control" type="text"/>
                     <label for="inputJenis">Jenis</label>
                 </div>
+                <div class="form-floating mb-3 mb-md-0">
+                    <input v-model="harga" placeholder="Masukkan harga" id="inputHarga" class="form-control" type="text"/>
+                    <label for="inputHarga">Harga</label>
+                </div>
+            </form>
+        </b-modal>
+        <b-modal id="modal_paket_edit" ref="modal" title="Form Paket" size="md" @ok="Save">
+            <form>
                 <div class="form-floating mb-3 mb-md-0">
                     <input v-model="harga" placeholder="Masukkan harga" id="inputHarga" class="form-control" type="text"/>
                     <label for="inputHarga">Harga</label>

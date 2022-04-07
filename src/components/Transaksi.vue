@@ -42,8 +42,8 @@
                                             <td>Total</td>
                                             <td>Aksi</td>
                                         </tr>
-                                        <tr v-for="(saksi, index) in transaksi" :key="index">
-                                            <td>{{ index+1 }}</td>
+                                        <tr v-for="saksi in transaksi" :key="saksi">
+                                            <td>{{ saksi.id_transaksi }}</td>
                                             <td>{{ saksi.nama_member }}</td>
                                             <td>{{ saksi.tgl }}</td>
                                             <td>
@@ -74,7 +74,7 @@
                                             <td>{{ saksi.kasir }}</td>
                                             <td>{{ saksi.total }}</td>
                                             <td>
-                                                <a v-b-modal.modal_detail href="#" class="btn btn-warning" @click="detail(saksi.detail_transaksi, saksi.total)">
+                                                <a v-b-modal.modal_detail href="#" class="btn btn-warning" @click="detail(saksi.detail_transaksi, saksi.total, saksi)">
                                                     <i class="fa-solid fa-circle-info"></i>
                                                 </a>
                                             </td>
@@ -88,14 +88,38 @@
             </div>
         </div>
         </main>
-        <b-modal id="modal_detail" ref="modal" title="Detail Transaksi" size="md" hide-footer="true">
+        <b-modal id="modal_detail" ref="modal" title="Detail Transaksi" size="lg" hide-footer="true">
             <a class="btn btn-success" @click="cetak()">Cetak</a>
             <div id="print">
-            <table class="table">
+                <table class="table table-bordered table-responsive" >
                                 <tr>
-                                    <td>Kasir :</td>
-                                    <td>{{ name }}</td>
+                                    <td>ID ORDER</td>
+                                    <td>:</td>
+                                    <td>{{ data_transaksi.id_transaksi }}</td>
+                                    <td>NAMA MEMBER</td>
+                                    <td>:</td>
+                                    <td>{{ data_transaksi.nama_member }}</td>
                                 </tr>
+                                <tr>
+                                    <td>NAMA KASIR</td>
+                                    <td>:</td>
+                                    <td>{{ name }}</td>
+                                    <td>PEMBAYARAN</td>
+                                    <td>:</td>
+                                    <td>{{ data_transaksi.dibayar }}</td>
+                                </tr>
+                                <tr>
+                                    <td>TGL TRANSAKSI</td>
+                                    <td>:</td>
+                                    <td>{{ data_transaksi.tgl }}</td>
+                                    <td>TGL BAYAR</td>
+                                    <td>:</td>
+                                    <td>{{ data_transaksi.tgl_bayar }}</td>
+                                </tr>
+                                </table>
+                                <hr>
+                                <br>
+            <table class="table">
                                 <tr>
                                     <td>#</td>
                                     <td>Jenis</td>
@@ -136,6 +160,7 @@ module.exports ={
             action:"",
             total:"",
             role:"",
+            data_transaksi:[],
             transaksi:[],
             detail_transaksi:[],
             list_years: [2020, 2021, 2022, 2023],
@@ -156,11 +181,13 @@ module.exports ={
             }
         axios.post(base_url + '/transaksi/report', form, config)
         .then(response =>{
+            console.log(response)
             this.transaksi = response.data.data;
+
             
         })
         .catch(error => {
-            console.log(error);
+            Swal.fire(error);
         });
         },
         getRole: function(){
@@ -171,6 +198,7 @@ module.exports ={
         }
         axios.get(base_url + '/login/check', config)
         .then(response=>{
+            console.log(response)
             if(response.data.success == true){
                 this.username = response.data.data.username;
                 this.name = response.data.data.name;
@@ -195,7 +223,7 @@ module.exports ={
             Swal.fire(response.data.message)
         })
         .catch(error => {
-            console.log(error);
+            Swal.fire(error);
         });
         },
         changeBayar: function(id_transaksi, event){
@@ -214,12 +242,13 @@ module.exports ={
             Swal.fire(response.data.message)
         })
         .catch(error => {
-            console.log(error);
+            Swal.fire(error);
         });
         },
-        detail: function(detail_transaksi, total){
+        detail: function(detail_transaksi, total, saksi){
             this.total = total;
             this.detail_transaksi = detail_transaksi;
+            this.data_transaksi = saksi;
         },
         cetak: function(){
       const prtHtml = document.getElementById('print').innerHTML;

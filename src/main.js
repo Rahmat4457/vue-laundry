@@ -2,9 +2,10 @@ var base_url= "http://localhost:8000/api";
 
 var router = [
 {
-    path:"/",
+    path:"/home",
     name:"Home",
     component: httpVueLoader("./src/components/Home.vue")
+
 },
 {
     path:"/outlet",

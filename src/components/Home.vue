@@ -7,9 +7,9 @@
               <div class="row">
                 <div class="col-8">
                   <div class="numbers">
-                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Data Member</p>
+                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Data User</p>
                     <h5 class="font-weight-bolder">
-                      {{ member.length }}
+                      {{ user.length }}
                     </h5>
                   </div>
                 </div>
@@ -29,7 +29,7 @@
 module.exports = {
     data: function(){
         return{
-            member: []
+            user: []
         }
     },
     methods:{
@@ -39,11 +39,11 @@ module.exports = {
                 "Authorization":"Bearer "+this.$cookies.get('Authorization')
             }
         }
-        axios.get(base_url + '/member', config)
+        axios.get(base_url + '/user', config)
         .then(response=>{
                 console.log(response);
             if(response.data.success == true){
-                this.member = response.data.data.member;
+                this.user = response.data.data.user;
         }  
     })
 },

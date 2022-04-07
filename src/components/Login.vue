@@ -29,7 +29,7 @@
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
               <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1545173168-9f1947eebb7f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGF1bmRyeXxlbnwwfHwwfHw%3D&w=1000&q=80');
                 background-size: cover;">
-                <span class="mask bg-gradient-primary opacity-6"></span>
+                <span class="mask bg-gradient-dark opacity-6"></span>
                 <h4 class="mt-5 text-white font-weight-bolder position-relative">"Perhatian!!!!!!!"</h4>
                 <p class="text-white position-relative">Jangan cuci baju anda sendiri, cucilah di laundry kami</p>
               </div>
